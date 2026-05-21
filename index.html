@@ -1,0 +1,48 @@
+import random
+
+def recommend_music():
+    print("=== 🎵 오늘 너의 기분은 어때? 🎵 ===")
+    print("1. 신남 (Energetic)")
+    print("2. 우울함 (Melancholy)")
+    print("3. 차분함 (Calm)")
+    print("4. 집중필요 (Focus)")
+    
+    # 사용자에게 기분 선택 받기
+    choice = input("\n기분의 번호를 입력해줘 (1~4): ")
+
+    # 기분별 음악 리스트 플레이리스트 정의
+    playlist = {
+        "1": [
+            {"title": "Dynamite", "artist": "BTS"},
+            {"title": "24K Magic", "artist": "Bruno Mars"},
+            {"title": "Don't Start Now", "artist": "Dua Lipa"}
+        ],
+        "2": [
+            {"title": "소나기", "artist": "이클립스"},
+            {"title": "Fix You", "artist": "Coldplay"},
+            {"title": "한 페이지가 될 수 있게", "artist": "DAY6"}
+        ],
+        "3": [
+            {"title": "밤편지", "artist": "아이유"},
+            {"title": "Come Fly With Me", "artist": "Frank Sinatra"},
+            {"title": "우주를 줄게", "artist": "볼빨간사춘기"}
+        ],
+        "4": [
+            {"title": "Rainy Night in Paris (Lo-Fi)", "artist": "Chillhop Music"},
+            {"title": "Gymnopédie No.1", "artist": "Erik Satie"},
+            {"title": "River Flows In You", "artist": "Yiruma"}
+        ]
+    }
+
+    # 입력값에 따른 추천 로직
+    if choice in playlist:
+        # 해당 기분의 리스트 중 무작위로 하나 추출
+        selected = random.choice(playlist[choice])
+        print("\n=====================================")
+        print(f"🎧 추천 곡: **{selected['title']}** - {selected['artist']}")
+        print("=====================================")
+    else:
+        print("\n❌ 1번부터 4번 사이의 숫자를 정확히 입력해줘!")
+
+if __name__ == "__main__":
+    recommend_music()
